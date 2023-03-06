@@ -1,6 +1,6 @@
 package domain
 
-type NewsEntity struct {
+type News struct {
 	Author      string `json:"author"`
 	Title       string `json:"title"`
 	Description string `json:"description"`

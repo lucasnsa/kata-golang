@@ -6,5 +6,5 @@ import (
 )
 
 type NewsDataSourceInterface interface {
-	FetchLastestNewsFromDate(date time.Time, code string, codein string) ([]domain.NewsEntity, error)
+	FetchLastestNewsFromDate(date time.Time, code string, codein string) ([]domain.News, error)
 }

@@ -15,7 +15,7 @@ type ParallelNewAndPricingRepositories struct {
 
 func (n *ParallelNewAndPricingRepositories) GetAllNewsAndPricingFromDate(date time.Time, code string, codein string) (domain.NewsAndPrice, error) {
 	chanErr := make(chan error, 1)
-	chanNews := make(chan []domain.NewsEntity)
+	chanNews := make(chan []domain.News)
 	chanPrice := make(chan domain.Price)
 
 	go n.coGetNews(date, code, codein, chanNews, chanErr)
@@ -32,7 +32,7 @@ func (n *ParallelNewAndPricingRepositories) GetAllNewsAndPricingFromDate(date ti
 	return newsAndPrice, nil
 }
 
-func (n *ParallelNewAndPricingRepositories) coGetNews(date time.Time, code string, codein string, news chan []domain.NewsEntity, err chan error) {
+func (n *ParallelNewAndPricingRepositories) coGetNews(date time.Time, code string, codein string, news chan []domain.News, err chan error) {
 	newsResponse, newsError := n.NewsDataSource.FetchLastestNewsFromDate(date, code, codein)
 
 	if newsError != nil {
