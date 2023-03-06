@@ -4,16 +4,17 @@ import (
 	"fmt"
 	"math/rand"
 	"net/http"
-	"pinpag/codingdojogolang/data/datasources"
-	"pinpag/codingdojogolang/data/repositories"
-	domain "pinpag/codingdojogolang/domain/repository"
-	"pinpag/codingdojogolang/external"
-	"pinpag/codingdojogolang/usecases"
+	"pinpag/codingdojogolang/src/data/datasources"
+	"pinpag/codingdojogolang/src/data/repositories"
+	domain "pinpag/codingdojogolang/src/domain/repository"
+	"pinpag/codingdojogolang/src/external"
+	"pinpag/codingdojogolang/src/usecases"
 	"time"
 
 	"github.com/gin-gonic/gin"
 )
 
+// variaveis
 var (
 	mustBeHttpClient  *http.Client
 	newsDataSource    datasources.NewsDataSourceInterface
